@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Pacifico', cursive;
+}
+
+.devs_block{
+    background-color: rgb(77, 77, 77);
+    padding: 70px 0px;
+}
+
+.devs_block h2.devHead{
+    text-align: center;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+
+
+
+/* ==================================
+Developers data Design start
+================================== */
+
+
+
+div#first_block{
+    font-family: 'Pacifico', cursive;
+    padding: 60px 30px;
+    background-image: linear-gradient(80deg, rgb(255, 151, 66), rgb(0 158 219), rgb(255, 151, 66));
+}
+
+div#first_block h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+div.wrapped{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 55px;
+}
+
+
+div.single_block{
+    width: 300px;
+    position: relative;
+    background:rgba(255, 255, 255, 0.288);
+    margin: 15px 15px;
+    padding: 30px 40px;
+    color: rgb(255, 255, 255);
+    border-radius: 5% 20% 5% 20%;
+    transition: all 0.3s;
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translateY(50px);
+    box-shadow: 1px 1px 20px 1px #00000047;
+}
+
+div.single_block div.sub img{
+    width: 100px;
+    height: 100px;
+    border: 5px inset rgba(5, 184, 255, 0.788);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+div.single_block div.sub{
+    transform: translateY(30px);
+    transition: all 0.3s;
+}
+
+div.single_block:hover div.sub{
+    transform: translateY(0px);
+}
+
+div.single_block h3{
+    font-weight: bold;
+    margin-top: 7px;
+}
+div.single_block h4{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color :#ffffffce;
+}
+
+div.single_block p{
+    font-size: 15px;
+    color :#ffffffd2;
+}
+
+div.single_block ul.social{
+    list-style: none;
+    transition: all 0.3s;
+    padding-top: 25px;
+    height: auto;
+}
+
+div.single_block ul.social li{
+    display: inline-block;
+    transform: translateY(50px);
+    transition: all 0.3s;
+    transition-delay: calc(0.05s * var(--i));
+    opacity: 0;
+}
+
+
+
+div.single_block:hover ul.social li{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+div.single_block ul.social li a{
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: block;
+    background: rgb(255, 72, 0);
+    margin: 0px 5px;
+    transition: all 0.3s;
+}
+
+div.single_block ul.social li a:hover{
+    transform: scale(0.8);
+}
+
+div.single_block ul.social li a i{
+    font-size: 26px;
+    padding: 9px;
+    color: white;
+}
+
+
+div.single_block:hover{
+    opacity: 1;
+}
+
+
+
+/* ==================================
+Developers data Design end
+================================== */
+
+
+
+/* ==================================
+Student data Design start
+================================== */
+
+
+div#second_block{
+    padding: 60px 30px;
+    background-image: linear-gradient(70deg, rgb(255, 51, 0), rgb(255, 145, 0), rgb(255, 51, 0));
+}
+
+div#second_block h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+div.wrapped2{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+div.wrapped2 div.single_block2{
+    width: 250px;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.322);
+    padding: 20px 20px;
+    margin: 15px 16px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 20px 1px #00000047;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+div.wrapped2 div.single_block2:hover{
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.438);
+}
+
+div.single_block2 img.profile{
+    width: 80px;
+    height: 80px;
+    border: 4px inset rgb(0, 226, 121);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+div.single_block2 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.single_block2 img.signeture{
+    margin-top: 20px;
+    width: 100px;
+    height: 70px;
+}
+
+
+/* ==================================
+Student data Design end
+================================== */
+
+
+/* ==================================
+phone book data Design start
+================================== */
+
+
+div.third_block{
+    padding: 60px 30px;
+    background-image: linear-gradient(60deg, rgb(0, 195, 255), rgb(0, 255, 255), rgb(0, 195, 255));
+}
+
+div.third_block h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+table{
+    width: 100%;
+    background-color: rgb(255 106 106 / 15%);
+    color: white;
+    text-align: center;
+}
+
+thead.table_data{
+    background-color: black;
+}
+
+table, th, td{
+    border: 2px solid rgba(255, 127, 80, 0.438);
+    border-collapse: collapse;
+}
+
+table th, td{
+    padding: 5px 10px;
+}
+
+table tr td img.tdImg{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+table tr:nth-child(even){
+    background: rgba(68, 68, 68, 0.199);
+}
+
+table tr:hover{
+    background-color: rgba(68, 68, 68, 0.329);
+}
+
+
+
+/* ==================================
+phone book data Design end
+================================== */
+
+

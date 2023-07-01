@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket IO</title>
+</head>
+<body>
+    
+    <h1 id="heading">Socket IO</h1>
+    <h1 id="heading2">Socket IO</h1>
+    <h1 id="heading3">Socket IO</h1>
+
+    <input type="text" id="msg">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('message', (data) => {
+            document.getElementById('heading').innerHTML = data.name;
+        });
+
+        socket.on('testData', (data) => {
+            document.getElementById('heading2').innerHTML = data.name;
+        });
+
+        socket.on('testData2', (data, data2, data3) => {
+            document.getElementById('heading3').innerHTML = `Name : ${data}, Age : ${data2} & Skill : ${data3}`;
+        });
+
+        document.getElementById('msg').onkeyup = (event) => {
+
+            let msg = event.target.value;
+            socket.emit('msg', msg);
+
+        }
+    </script>
+</body>
+</html>

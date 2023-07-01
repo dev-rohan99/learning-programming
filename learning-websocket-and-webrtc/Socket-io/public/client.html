@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket IO</title>
+    <style>
+
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatWrap{
+            width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        .inputBox{
+            padding: 7px 10px;
+            width: 19.5%;
+            outline: none;
+            border: 3px solid #ddd;
+            border-radius: 7px;
+        }
+
+        .userWrap{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .one{
+            margin-bottom: 10px;
+        }
+
+        .userWrap2{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .userWrap img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .userWrap2 img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .userWrap div{
+            padding: 10px 15px;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-left: 7px;
+        }
+
+        .userWrap2 div{
+            padding: 10px 15px;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-right: 7px;
+        }
+
+        .inputWrap{
+            margin-top: 10px;
+        }
+
+        .userWrap div h3{
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0px 0px;
+            margin-bottom: 5px;
+        }
+
+        .userWrap2 div h3{
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0px 0px;
+            margin-bottom: 5px;
+        }
+
+        .userWrap div p{
+            font-size: 15px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .userWrap2 div p{
+            font-size: 15px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .bodyMessage{
+            height: 550px;
+            overflow-y: scroll;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- <h1 id="heading">Socket IO</h1>
+    <h1 id="headingTwo">Socket IO</h1>
+    <h1 id="headingThree">Socket IO</h1>
+    <h1 id="headingFore">Socket IO</h1>
+    <input type="text" id="msg"> -->
+
+    <div class="chatWrap">
+        <div id="chat" class="bodyMessage">
+            
+        </div>
+
+
+        <div class="inputWrap">
+            <!-- <form class="form"> -->
+                <input id="name" type="text" class="inputBox" placeholder="Name">
+                <input id="photo" type="text" class="inputBox" placeholder="Photo">
+                <input id="message" type="text" class="inputBox" placeholder="Message">
+                <input id="send" type="submit" value="SEND" class="inputBox">
+            <!-- </form> -->
+        </div>
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const socket = io();
+
+        // socket.on("message", (data) => {
+        //     document.getElementById("heading").innerHTML = data.name;
+        // });
+
+        // socket.on("testData", (data) => {
+        //     document.getElementById("headingTwo").innerHTML = data.name;
+        // });
+
+        // socket.on("testData2", (data, data2, data3) => {
+        //     document.getElementById('headingThree').innerHTML = `Name : ${data}, Age : ${data2} & Skill : ${data3}`;
+        // });
+
+        // document.getElementById("msg").onkeyup = (e) => {
+        //     let msg = e.target.value;
+        //     socket.emit("msg", msg);
+        //     socket.on("inputData", (data) => {
+        //         document.getElementById("headingFore").innerHTML = data;
+        //     });
+        // }
+
+        const username = localStorage.getItem("username");
+
+        socket.on("latestData", (data) => {
+
+            let chat = "";
+
+            
+            data.forEach(item => {
+
+                if(username == item.name){
+                    chat += `
+                    
+                        <div class="userWrap2 one">
+                            <div class="">
+                                <h3>${item.name}</h3>
+                                <p>${item.message}</p>
+                            </div>
+
+                            <img src=${item.photo} alt="">
+                        </div>
+                    
+                    `;
+
+                }else{
+                    
+                    chat += `
+                    
+                        <div class="userWrap one">
+                            <img src=${item.photo} alt="">
+                
+                            <div class="">
+                                <h3>${item.name}</h3>
+                                <p>${item.message}</p>
+                            </div>
+                        </div>
+                    
+                    `;
+                        
+                }
+            
+            });
+
+            document.getElementById("chat").innerHTML = chat;
+
+        });
+
+        document.getElementById("send").onclick = () => {
+            let name = document.getElementById("name").value;
+            let photo = document.getElementById("photo").value;
+            let message = document.getElementById("message").value;
+
+            if(!localStorage.getItem("username")){
+                localStorage.setItem("username", name);
+            }
+
+            socket.emit("chat", {name, photo, message});
+            document.getElementById("message").value = "";
+        }
+
+    </script>
+
+</body>
+</html>
