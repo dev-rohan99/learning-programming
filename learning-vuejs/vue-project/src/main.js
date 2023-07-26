@@ -13,6 +13,7 @@ app.component(
         /* ... */
     }
 )
+// app.component('MyComponent', MyComponent);
 app.use(router);
 app.mount('#app');
 

@@ -3,6 +3,11 @@
     import { ref, reactive, computed, onMounted, watch, toRaw, watchEffect, watchPostEffect } from "vue";
     import BlogPost from "../components/BlogPost.vue";
 
+    defineProps({
+        title: String,
+        likes: Number
+    })
+
     const activeColor = ref('red');
     const fontSize = ref(30);
 
@@ -458,6 +463,16 @@
             <table>
                 <tr is="vue:blog-post-row"></tr>
             </table>
+        </div>
+
+        <div>
+            <button @click="$emit('someEvent')">click me</button>
+
+            <button @click="$emit('increaseBy', 1)">Increase by 1</button>
+
+            <button type="submit">
+                <slot>Helllo</slot>
+            </button>
         </div>
 
     </div>
