@@ -256,6 +256,221 @@
     echo "<pre>";
     print_r($fruts);
     echo "</pre>";
+
+    // PHP Array_Slice Function
+    $newFruts = array_slice($fruts, 1, 2);
+    $newFruts2 = array_slice($fruts, -3, 2);
+
+    echo "<pre>";
+    print_r($newFruts);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newFruts2);
+    echo "</pre>";
+
+    // PHP Array_Splice Function
+    $frutsThree = ["Orange", "Apple"];
+    $frutsFour = ["Cheri", "Guaba"];
+    array_splice($frutsThree, 0, 1, $frutsFour);
+
+    echo "<pre>";
+    print_r($frutsThree);
+    echo "</pre>";
+
+    // PHP Array_Merge & Array_Combine
+    $foods1 = ["Rice", "Meat", "Kacchi"];
+    $foods2 = ["Beaf", "KFC", "Grill"];
+    $newFoodsArr = array_merge($foods1, $foods2);
+
+    echo "<pre>";
+    print_r($newFoodsArr);
+    echo "</pre>";
+
+    $colorOne = ["r" => "Red", "g" => "Green", "y" => "yellow", "p" => "Ping"];
+    $colorOTwo = ["b" => "Blue"];
+    $newColorsArr = array_merge($colorOne, $colorOTwo);
     
+    echo "<pre>";
+    print_r($newColorsArr);
+    echo "</pre>";
+
+    $colorThree = ["r" => "Red", "g" => "Green", "y" => "yellow", "p" => "Ping"];
+    $colorFour = ["b" => ["color" => ["Blue", "Gray"]], 544, 44];
+    $newColorsTwoArr = array_merge_recursive($colorThree, $colorFour);
+    
+    echo "<pre>";
+    print_r($newColorsTwoArr);
+    echo "</pre>";
+
+    $foodss1 = ["Rice", "Meat", "Kacchi"];
+    $foodss2 = [45, 54, 45];
+    $newFoodssArr = array_combine($foodss1, $foodss2);
+
+    echo "<pre>";
+    print_r($newFoodssArr);
+    echo "</pre>";
+
+    // PHP Array Key Functions
+    $arrayKeyOne = array_keys($colorThree);
+    $arrayKeyTwo = array_key_first($colorThree);
+    $arrayKeyThree = array_key_last($colorThree);
+    $arrayKeyFour = array_key_exists("r", $colorThree);
+
+    echo "<pre>";
+    // print_r($arrayKeyOne);
+    // print_r($arrayKeyTwo);
+    // print_r($arrayKeyThree);
+    print_r($arrayKeyFour);
+    echo "</pre>";
+    
+    // PHP Array Intersect Functions
+
+    function compare($a1, $a2){
+        if($a1 === $a2){
+            return 0;
+        }
+        return ($a1 > $a2) ? 1 : -1;
+    }
+
+    $a1 = ["r" => "Red", "g" => "Green", "y" => "yellow", "p" => "Ping"];
+    $a2 = ["r" => "Red", "g" => "Green"];
+    $a3 = ["r" => "Red", "g" => "Green", "h" => "yellow"];
+    $newArr3 = array_intersect($a1, $a2, $a3);
+    $newArr4 = array_intersect_key($a1, $a2, $a3);
+    $newArr5 = array_intersect_assoc($a1, $a2, $a3);
+    $newArr6 = array_intersect_uassoc($a1, $a2, "compare");
+    $newArr7 = array_intersect_uassoc($a1, $a2, "strcasecmp");
+
+    echo "<pre>";
+    print_r($newArr3);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr4);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr5);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr6);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr7);
+    echo "</pre>";
+
+    // PHP Array Diff & Udiff Functions
+
+    function compareFunc($a1, $a2){
+        if($a1 === $a2){
+            return 0;
+        }
+        return ($a1 > $a2) ? 1 : -1;
+    }
+
+    function compareValue($a1, $a2){
+        if($a1 === $a2){
+            return 0;
+        }
+        return ($a1 > $a2) ? 1 : -1;
+    }
+
+    $newArr8 = array_diff($a1, $a2, $a3);
+    $newArr9 = array_diff_assoc($a1, $a2, $a3);
+    $newArr10 = array_diff_uassoc($a1, $a2, "compareFunc");
+    $newArr11 = array_udiff_assoc($a1, $a2, "compareFunc");
+    $newArr12 = array_diff_ukey($a1, $a2, "compareFunc");
+    $newArr13 = array_udiff($a1, $a2, "compareFunc");
+    $newArr14 = array_udiff_uassoc($a1, $a2, "compareFunc", "compareValue");
+
+    echo "<pre>";
+    print_r($newArr8);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr9);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr10);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr11);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr12);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr13);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newArr14);
+    echo "</pre>";
+
+    // PHP Array_Values & Array_Unique
+    $x1 = ["a" => "Red", "b" => "Green", "c" => "yellow", "d" => "Ping", "e" => "Red",];
+    $newColorArr1 = array_values($x1);
+    $newColorArr2 = array_unique($x1);
+
+    echo "<pre>";
+    print_r($newColorArr1);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($newColorArr2);
+    echo "</pre>";
+
+    // PHP Array_Column & Array_Chunk Function
+    $x1Array = array(
+        array(
+            'id' => 2201,
+            'first_name' => 'Anil',
+            'last_name' => 'Kapoor',
+        ),
+        array(
+            'id' => 2202,
+            'first_name' => 'Salman',
+            'last_name' => 'Khan',
+        ),
+        array(
+            'id' => 2203,
+            'first_name' => 'John',
+            'last_name' => 'Abraham'
+        )
+    );
+
+    $newX1Arr = array_column($x1Array, "first_name", "id");
+
+    echo "<pre>";
+    print_r($newX1Arr);
+    echo "</pre>";
+
+    $x1Foods = ["Rice", "Meat", "Kacchi", "Beaf", "KFC", "Grill"];
+    $newX1Foods = array_chunk($x1Foods, 2);
+
+    echo "<pre>";
+    print_r($newX1Foods);
+    echo "</pre>";
+
+    $x1Age = array(
+        "Mohan" => "35",
+        "Aman" => "37",
+        "Ram" => "43",
+        "Salman" => "25"
+    );
+    $newX1Age = array_chunk($x1Age, 3);
+    $newX1Age2 = array_chunk($x1Age, 3, true);
+
+    echo "<pre>";
+    // print_r($newX1Age);
+    print_r($newX1Age2);
+    echo "</pre>";
 
 ?>
