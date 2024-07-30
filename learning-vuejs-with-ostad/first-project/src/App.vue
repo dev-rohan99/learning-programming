@@ -1,16 +1,21 @@
 <script setup>
 
-  const message = "Hello World!";
-  const date = new Date()
-  date.toString();
+import Assignment01 from './components/Assignment01.vue';
+import Practice01 from './components/Practice01.vue';
+import Practice02 from './components/Practice02.vue';
 
 </script>
 
 <template>
 
-  <div>
-    <h1>{{message}}</h1>
-    <h4>{{date}}</h4>
+  <div class="w-[1200px] mx-auto mb-5">
+    
+    <Practice01/>
+
+    <Practice02/>
+
+    <Assignment01/>
+    
   </div>
 
 </template>
