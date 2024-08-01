@@ -1,6 +1,6 @@
 <script setup>
 
-import { people } from '../data/data';
+import { peoples } from '../data/data';
 
 </script>
 
@@ -11,29 +11,46 @@ import { people } from '../data/data';
 
         <section class="content">
             <section class="person">
-                <img :src="people[0].src" v-bind:alt="people[0].alt">
+                <img :src="peoples[0].src" v-bind:alt="peoples[0].alt">
                 <div>
-                    <h1>{{ people[0].name }}</h1>
-                    <h2>{{ people[0].designation }}</h2>
-                    <p>{{ people[0].location }}</p>
+                    <h1>{{ peoples[0].name }}</h1>
+                    <h2>{{ peoples[0].designation }}</h2>
+                    <p>{{ peoples[0].location }}</p>
                 </div>
             </section>
 
             <section class="person">
-                <img :src="people[1].src" v-bind:alt="people[1].alt">
+                <img :src="peoples[1].src" v-bind:alt="peoples[1].alt">
                 <div>
-                    <h1>{{ people[1].name }}</h1>
-                    <h2>{{ people[1].designation }}</h2>
-                    <p>{{ people[1].location }}</p>
+                    <h1>{{ peoples[1].name }}</h1>
+                    <h2>{{ peoples[1].designation }}</h2>
+                    <p>{{ peoples[1].location }}</p>
                 </div>
             </section>
 
             <section class="person">
-                <img :src="people[2].src" v-bind:alt="people[2].alt">
+                <img :src="peoples[2].src" v-bind:alt="peoples[2].alt">
                 <div>
-                    <h1>{{ people[2].name }}</h1>
-                    <h2>{{ people[2].designation }}</h2>
-                    <p>{{ people[2].location }}</p>
+                    <h1>{{ peoples[2].name }}</h1>
+                    <h2>{{ peoples[2].designation }}</h2>
+                    <p>{{ peoples[2].location }}</p>
+                </div>
+            </section>
+
+        </section>
+    </section>
+    
+    <section>
+        <h1 style="text-align:center;margin:40px 0px;font-size:40px">Data Example</h1>
+
+        <section class="content">
+
+            <section class="person" v-for="(people, index) in peoples" :key="index">
+                <img :src="people.src" v-bind:alt="people.alt">
+                <div>
+                    <h1 :class="people.id === 2 ? 'text-[40px]' : 'text-[30px]'">{{ people.name }}</h1>
+                    <h2>{{ people.designation }}</h2>
+                    <p>{{ people.location }}</p>
                 </div>
             </section>
 
@@ -41,6 +58,8 @@ import { people } from '../data/data';
     </section>
 
 </template>
+
+
 
 <style scoped>
 

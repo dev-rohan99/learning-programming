@@ -7,6 +7,9 @@ const weather = {
     location: "Dhaka"
 }
 
+const green = "bg-green-600";
+const weathers = false;
+
 </script>
 
 <template>
@@ -14,8 +17,8 @@ const weather = {
     <div class="flex justify-center mt-5 mb-5">
 
         
-        <div
-            class="card  min-w-sm max-w-sm border border-gray-100 transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md">
+        <div :class="green"
+            class="card  min-w-sm max-w-sm border border-gray-100 transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full text-purple-50 rounded-md">
             <h2 class="text-md mb-2 px-4 pt-4">
                 <div class="flex justify-between">
                     <div class="badge relative top-0">
@@ -51,8 +54,8 @@ const weather = {
 
         <!-- group condition system -->
 
-        <div
-            class="card  min-w-sm max-w-sm border border-gray-100 transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md">
+        <div :class="weathers ? 'bg-green-600' : 'bg-yellow-600'"
+            class="card  min-w-sm max-w-sm border border-gray-100 transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full text-purple-50 rounded-md">
             <h2 class="text-md mb-2 px-4 pt-4">
                 <div class="flex justify-between">
                     
@@ -114,6 +117,7 @@ const weather = {
                     </div>
                 </div>
             </div>
+
         </div>
 
 

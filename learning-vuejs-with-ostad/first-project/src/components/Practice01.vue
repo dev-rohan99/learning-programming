@@ -13,6 +13,10 @@ const blogs2 = {
   description: "Here are the biggest enterprise technology."
 }
 
+const getActiveBlogs = () => {
+  return blogs.filter(blog => blog.status == "active");
+}
+
 </script>
 
 <template>
@@ -25,23 +29,47 @@ const blogs2 = {
       <h4>Task for today {{data.task.length}}</h4>
     </div>
 
+    <div class="flex justify-between items-center gap-3">
+
+      <!-- list rendering -->
+      <!-- attribute ==> : or v-bind:[attribute] -->
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" v-for="(blog, index) in blogs" :key="index">
+            <a href="#">
+                <img :title="blog.title" class="rounded-t-lg" v-bind:src="blog.src" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ blog.title }}</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ blog.description }}</p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                </a>
+            </div>
+        </div>
+
+    </div>
+
     <div class="flex justify-between items-center">
 
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <!-- attribute ==> : or v-bind:[attribute] -->
-          <a href="#">
-              <img :title="blogs[0].title" class="rounded-t-lg" v-bind:src="blogs[0].src" alt="" />
-          </a>
-          <div class="p-5">
-              <a href="#">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ blogs[0].title }}</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ blogs[0].description }}</p>
-              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Read more
-              </a>
-          </div>
-      </div>
+      <!-- list rendering -->
+      <!-- attribute ==> : or v-bind:[attribute] -->
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" v-for="(blog, index) in getActiveBlogs()" :key="index">
+            <a href="#">
+                <img :title="blog.title" class="rounded-t-lg" v-bind:src="blog.src" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ blog.title }}</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ blog.description }}</p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                </a>
+            </div>
+        </div>
 
     </div>
 
