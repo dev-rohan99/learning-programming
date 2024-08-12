@@ -4,11 +4,13 @@ import Accordion from './components/Accordion.vue';
 import AdvancedEventModifier from './components/AdvancedEventModifier.vue';
 import ArrayReactive from './components/ArrayReactive.vue';
 import Assignment01 from './components/Assignment01.vue';
+import CarouselWithHooks from './components/CarouselWithHooks.vue';
 import DataBinding from './components/DataBinding.vue';
 import DynamicSearch from './components/DynamicSearch.vue';
 import EventModifier from './components/EventModifier.vue';
 import EventReactivity from './components/EventReactivity.vue';
 import InvoiceSystem from './components/InvoiceSystem.vue';
+import LifecycleHooks from './components/LifecycleHooks.vue';
 import LoopEventReactive from './components/LoopEventReactive.vue';
 import ObjectReactivity from './components/ObjectReactivity.vue';
 import Practice01 from './components/Practice01.vue';
@@ -52,10 +54,14 @@ import Slider from './components/Slider.vue';
     <!-- <QuizSystem/> -->
 
     <!-- <DynamicSearch/> -->
+
+    <!-- <LifecycleHooks/> -->
+
+    <CarouselWithHooks/>
     
   </div>
 
-  <InvoiceSystem/>
+  <!-- <InvoiceSystem/> -->
 
 </template>
 
