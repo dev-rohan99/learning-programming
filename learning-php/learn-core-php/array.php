@@ -550,7 +550,74 @@
 
     // php array list function
 
+    $listColor = array("Red", "Green", "Blue");
+    $listColor2 = array(0 => "Red", 1 => "Green", 2 => "Blue");
+
+    list($a, $b, $c) = $listColor;
+    list($x, $y, $z) = $listColor2;
+
+    echo "Value of a: $a <br/>";
+    echo "Value of b: $b <br/>";
+    echo "Value of c: $c <br/><br/>";
+
+    echo "Value of x: $x <br/>";
+    echo "Value of y: $y <br/>";
+    echo "Value of z: $z <br/><br/>";
+
+    // php array extract
     
+    $a = "Oranges";
+    $color5 = array("a" => "Red", "b" => "Green", "c" => "Blue");
+
+    // extract($color5);
+    // extract($color5 , EXTR_OVERWRITE);
+    // extract($color5 , EXTR_SKIP);
+    // extract($color5 , EXTR_REFS);
+    // extract($color5 , EXTR_PREFIX_SAME, "test");
+    extract($color5 , EXTR_PREFIX_ALL, "test2");
+
+    // echo "Value of a_test: $test_a <br/>";
+
+
+    // echo "Value of a: $a <br/>";
+    // echo "Value of b: $b <br/>";
+    // echo "Value of c: $c <br/><br/>";
+
+    echo "Value of a: $test2_a <br/>";
+    echo "Value of b: $test2_b <br/>";
+    echo "Value of c: $test2_c <br/><br/>";
+
+    // php array compact
+
+    $firstName = "Rohan";
+    $lastName = "Mostofa";
+    $age = 22;
+
+    $newDataArr = compact("firstName", "lastName", "age");
+
+    echo "<pre>";
+    print_r( $newDataArr );
+    echo "</pre>";
+
+    // php array range
+
+    $newRangeArr = range(0, 100, 10);
+    $newRangeArr2 = range("r", "a");
+
+    echo "<pre>";
+    print_r( $newRangeArr );
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r( $newRangeArr2 );
+    echo "</pre>";
+
+    foreach( $newRangeArr2 as $letter){
+        echo "Letter: $letter <br/>";
+    };
+
+    
+
 
 
 
