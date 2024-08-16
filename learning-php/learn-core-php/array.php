@@ -342,7 +342,7 @@
     $newArr6 = array_intersect_uassoc($a1, $a2, "compare");
     $newArr7 = array_intersect_uassoc($a1, $a2, "strcasecmp");
 
-    echo "<pre>";
+    echo "<pre> Hello";
     print_r($newArr3);
     echo "</pre>";
 
@@ -358,7 +358,7 @@
     print_r($newArr6);
     echo "</pre>";
 
-    echo "<pre>";
+    echo "<pre> Hello";
     print_r($newArr7);
     echo "</pre>";
 
@@ -386,7 +386,7 @@
     $newArr13 = array_udiff($a1, $a2, "compareFunc");
     $newArr14 = array_udiff_uassoc($a1, $a2, "compareFunc", "compareValue");
 
-    echo "<pre>";
+    echo "<pre>as";
     print_r($newArr8);
     echo "</pre>";
 
@@ -410,7 +410,7 @@
     print_r($newArr13);
     echo "</pre>";
 
-    echo "<pre>";
+    echo "<pre>as";
     print_r($newArr14);
     echo "</pre>";
 
@@ -469,8 +469,88 @@
     $newX1Age2 = array_chunk($x1Age, 3, true);
 
     echo "<pre>";
-    // print_r($newX1Age);
-    print_r($newX1Age2);
+    print_r($newX1Age);
+    // print_r($newX1Age2);
     echo "</pre>";
 
-?>
+    // shorting 
+
+    $sortFruts = array("Orange", "Banana", "Apple");
+    $numberSort = [23, 4, 23, 65];
+
+    sort($sortFruts);
+    rsort($numberSort);
+
+    echo "<pre>";
+    print_r($sortFruts);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($numberSort);
+    echo "</pre>";
+
+    $sortAsoFruts = array(
+        "d" => "Orange",
+        "a" => "Apple",
+        "z" => "Banana"
+    );
+
+    // asort($sortAsoFruts);
+    // arsort($sortAsoFruts);
+    // ksort($sortAsoFruts);
+    krsort($sortAsoFruts);
+
+    echo "<pre>";
+    print_r($sortAsoFruts);
+    echo "</pre>";
+
+    $imageArray = array("img12.png", "img2.png", "Img90.png", "img1.png");
+
+    // natural order array sort
+    // natsort($imageArray);
+    natcasesort($imageArray);
+
+    echo "<pre>";
+    print_r($imageArray);
+    echo "</pre>";
+    
+    $sortFruts2 = array("Orange", "Banana", "Apple");
+    $numberSort2 = [23, 4, 23];
+    array_multisort($sortFruts2, $numberSort2);
+
+    echo "<pre>";
+    print_r($sortFruts2);
+    echo "</pre>";
+
+    echo "<pre>";
+    print_r($numberSort2);
+    echo "</pre>";
+
+    // array traversing
+
+    $frutsArrOne = array("Orange", "Banana", "Apple", "Guava");
+
+    echo "<b>Current: </b>" . current($frutsArrOne) . "<br/>";
+    echo "<b>Key: </b>" . key($frutsArrOne) . "<br/>";
+    echo "<b>Position: </b>" . pos($frutsArrOne) . "<br/>";
+    next($frutsArrOne);
+    echo "<b>Next: </b>" . current($frutsArrOne) . "<br/>";
+    prev($frutsArrOne);
+    echo "<b>Prev: </b>" . current($frutsArrOne) . "<br/>";
+    end($frutsArrOne);
+    echo "<b>Prev: </b>" . current($frutsArrOne) . "<br/>";
+    echo "<b>Prev: </b>" . key($frutsArrOne) . "<br/>";
+    
+    echo "<pre>";
+    // print_r(each($frutsArrOne));
+    echo "</pre>";
+
+    reset($frutsArrOne);
+    echo "<b>Reset: </b>" . current($frutsArrOne) . "<br/>";
+
+    // php array list function
+
+    
+
+
+

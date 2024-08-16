@@ -16,18 +16,18 @@
 
     $marks = 70;
 
-    if($marks => 80 && $marks =< 100){
+    if($marks >= 80 && $marks <= 100){
         echo "You are in Merit!";
-    }elseif($marks => 60 && $marks < 80){
+    }elseif($marks >= 60 && $marks < 80){
         echo "You are in Ist Devision!";
-    }elseif($marks => 45 && $marks < 60){
+    }elseif($marks >= 45 && $marks < 60){
         echo "You are in IIst Devision!";
-    }elseif($marks => 33 && $marks < 45){
+    }elseif($marks >= 33 && $marks < 45){
         echo "You are in IIIst Devision!";
     }elseif($marks < 33){
         echo "You are fail!";
     }else{
-        echo "Please enter valid number!"
+        echo "Please enter valid number!";
     }
 
 ?>
