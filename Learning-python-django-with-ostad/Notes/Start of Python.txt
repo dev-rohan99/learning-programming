@@ -1,0 +1,17 @@
+=> Python is high level, interpreted programming language
+=> Guido Van Rosssum and first released in 1991
+
+=> Why python?
+
+=> Simplicity 
+=> Versatility
+=> Large Communities
+=> Career Opportunities
+
+=> Real world use case!
+
+=> Web Development
+=> Data Science and Maching Learning
+=> Automation and Scripting
+=> Game Development
+=> Embedded Systems
