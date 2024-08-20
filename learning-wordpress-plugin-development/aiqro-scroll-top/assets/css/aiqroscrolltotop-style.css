@@ -1,0 +1,48 @@
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px 3px rgb(0 0 0 / 37%);
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: 3px solid #fff;
+    outline: none;
+}
+
+.scroll-to-top.show {
+    display: block;
+    opacity: 1;
+    outline: none;
+}
+
+.scroll-to-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px 3px rgb(0 0 0 / 37%);
+    outline: none;
+}
+
+/* Icon Styles */
+.scroll-to-top .icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    animation: bounce 1s infinite;
+    outline: none;
+}
+
+/* Bouncing Arrow Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+

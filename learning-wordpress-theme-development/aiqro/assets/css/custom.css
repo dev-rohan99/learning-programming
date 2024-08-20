@@ -1,0 +1,181 @@
+/* ====================================
+Initialize font
+==================================== */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playwrite+HR:wght@100..400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+
+/* ====================================
+Common CSS
+==================================== */
+
+body{
+    font-family: "Josefin Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+img{
+    max-width: 100%;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    font-family: "Kanit", sans-serif;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+/* ====================================
+Header area design
+==================================== */
+
+
+#header_area {
+    font-family: "Kanit", sans-serif !important;
+    background-color: #fff;
+    color: #969696 !important;
+    font-weight: 400;
+}
+
+/* Logo styling */
+#header_area .navbar-brand {
+    font-size: 2.5rem;
+}
+
+/* General menu link styles */
+#header_area a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 28px 20px;
+    display: block;
+}
+
+/* Menu item links */
+#menuId li > a {
+    color: #590396;
+    font-weight: bold;
+}
+
+/* Center the menu items */
+#menuId {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+/* Reset padding/margin for all lists */
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+/* Sub-menu link styles */
+ul.sub-menu li a {
+    padding: 12px 15px !important;
+    color: #590396;
+    background-color: #fff !important;
+    display: block;
+}
+
+ul.sub-menu li a:hover {
+    background-color: #590396 !important;
+    color: #fff !important;
+}
+
+/* Position the parent menu item */
+.menu-item.menu-item-has-children {
+    position: relative;
+}
+
+/* First-level dropdown menu */
+.menu-item.menu-item-has-children > ul.sub-menu {
+    position: absolute;
+    background: #fff;
+    box-shadow: -2px 5px 7px 0px #0000000d;
+    border-radius: 10px;
+    overflow: hidden;
+    list-style: none;
+    width: 340px;
+    top: 85px;
+    left: 0;
+    transform: translateY(20px);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out, visibility 0.5s, opacity 0.5s;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Show the first-level dropdown on hover */
+.menu-item.menu-item-has-children:hover > ul.sub-menu {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Position the nested dropdown menu */
+.menu-item.menu-item-has-children ul.sub-menu ul.sub-menu {
+    top: 0;
+    left: 100%; /* Aligns the nested dropdown to the right of the parent dropdown */
+    transform: translateX(20px);
+    transform-origin: left;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, visibility 0.5s, opacity 0.5s;
+}
+
+/* Show the nested dropdown on hover */
+.menu-item.menu-item-has-children ul.sub-menu li.menu-item-has-children:hover > ul.sub-menu {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.right_menu .col-md-2 {
+    order: 1;
+}
+
+.right_menu .col-md-10 {
+    order: 2;
+    justify-content: right;
+} 
+
+.right_menu .col-md-10 ul#menuId {
+    justify-content: right;
+} 
+
+.left_menu .col-md-2.col-6 {
+    order: 2;
+}
+
+.left_menu .col-md-10 {
+    order: 1;
+    justify-content: left;
+} 
+
+.left_menu .col-md-10 ul#menuId {
+    justify-content: left;
+} 
+
+.center_menu .row{
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.center_menu .col-md-2.col-6 {
+    width: 100% !important;
+    text-align: center;
+}
+
+.center_menu .col-md-10 {
+    width: 100% !important;
+    justify-content: center;
+} 
+
+.center_menu .col-md-10 ul#menuId {
+    justify-content: center;
+} 
+
