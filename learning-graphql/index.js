@@ -1,61 +1,58 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-// types
-import { typeDefs } from "./schema.js";
+import dotenv from "dotenv";
+import colors from "colors";	
+// import { typeDefs } from "./schema.js";
 import db from "./_db.js";
+
+dotenv.config();
+
+const typeDefs = `#graphql 
+
+    type Query {
+        firstQuery: String
+        ageCal: Int
+        getDevelopers: String
+    }
+
+    type Mutation {
+        createDeveloper(name: String, age: Int, hobbies: String): Developer
+    }
+
+    type Developer {
+        name: String
+        age: Int
+        hobbies: String
+    }
+
+`;
 
 const resolvers = {
     Query: {
-        games: () => {
-            return db.games;
+        firstQuery: () => {
+            return "Hello world!";
         },
-        game: (_, { id }) => {
-            const game = db.games.find((game) => game.id === id);
-            if(!game){
-                throw new Error(`Game with ID ${id} not found`)
-            }
-            return game;
+
+        ageCal: () => {
+            return 1200;
         },
-        reviews: () => {
-            return db.reviews
-        },
-        review: (_, { id }) => {
-            const review = db.reviews.find((review) => review.id === id);
-            if(!review){
-                throw new Error(`Review with ID ${id} not found`)
-            }
-            return review;
-        },
-        authors: () => {
-            return db.authors
-        },
-        author: (_, { id }) => {
-            const author = db.authors.find((author) => author.id === id);
-            if(!author){
-                throw new Error(`Author with ID ${id} not found`);
-            }
-            return author;
+
+        getDevelopers: () => {
+            return "We are all developers";
         }
     },
 
-    Game: {
-        reviews: (parent) => {
-            const reviews = db.reviews.filter((review) => review.game_id === parent.id);
-            if(!reviews){
-                throw new Error(`Game review not found!`);
-            }
-            return reviews;
+    Mutation: {
+        createDeveloper: (_,  {name, age, hobbies}) => {
+            const newDeveloper = {
+                name,
+                age,
+                hobbies
+            };
+            return newDeveloper;
         }
-    },
-
-    Author: {
-
-    },
-
-    Review: {
-
     }
-}
+};
 
 const server = new ApolloServer({
     typeDefs,
@@ -66,5 +63,5 @@ const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 }
 });
 
-console.log(`Server ready at PORT ${4000}`);
+console.log(`Server ready at URL ${url}`.bgGreen.white);
 
